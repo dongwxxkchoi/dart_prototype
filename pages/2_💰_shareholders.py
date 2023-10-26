@@ -1,7 +1,5 @@
 # Libraries
 import streamlit as st
-import pandas as pd
-import sys
 
 from streamlit_agraph import agraph, Config
 from prepare_data import load_shareholder_data

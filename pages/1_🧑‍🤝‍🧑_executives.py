@@ -1,8 +1,5 @@
 # Libraries
 import streamlit as st
-import pandas as pd
-from streamlit_option_menu import option_menu
-from numerize.numerize import numerize
 
 from prepare_data import load_executives_data, get_companylist
 from utils.utils_executives import convert_to_csv, executives_change_to_df
