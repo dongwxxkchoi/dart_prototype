@@ -31,3 +31,5 @@ def executives_change_to_df(df, selected_name):
     
     period_df = pd.DataFrame(datas)
     period_df.sort_values(by="기간", inplace=True)
+
+    return period_df

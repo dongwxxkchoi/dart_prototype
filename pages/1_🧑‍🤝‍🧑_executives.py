@@ -84,9 +84,8 @@ def Home():
     # ============================================================
     # 선택한 임원의 기간별 경력
     st.subheader("선택한 임원의 기간별 경력")
-    
-    period_df = executives_change_to_df(df_selection, selected_name)
 
+    period_df = executives_change_to_df(df_selection, selected_name)
     st.download_button('Download file', 
                        data=convert_to_csv(period_df), 
                        file_name=f'{selected_name}-기간별주요이력.csv',
