@@ -59,6 +59,7 @@ def Home():
                        data=convert_to_csv(df_selection[showData]), 
                        file_name=f'{selected_company}-임원목록.csv',
                        mime='text/csv')
+    
     st.dataframe(df_selection[showData],use_container_width=True)
     
     # ============================================================

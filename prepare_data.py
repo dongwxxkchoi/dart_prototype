@@ -36,6 +36,7 @@ def load_shareholder_data():
                                     "기말 소유 주식 수": "주식수"}, inplace=True)
 
     df_shareholder['기간'] = df_shareholder['연도'].astype('str') + " - " + df_shareholder['분기'].astype('str')
+    df_shareholder['주식수'] = df_shareholder['주식수'].apply(add_commas)
 
     df_stocks = pd.read_csv(STOCKS_DATA_URL, dtype={'종목코드': str,
                                                     '종목명': str, 
@@ -66,3 +67,8 @@ def load_shareholder_data():
     df_shareholder.sort_values(by=['연도', '분기', '지분율'], ascending=False, inplace=True)
 
     return df_shareholder, df_stocks, corps, corp_codes, corp_dict
+
+def add_commas(text):
+    amount = int(text)  # 문자열을 정수로 변환
+    formatted_amount = "{:,}".format(amount)  # 천 단위마다 쉼표를 추가한 문자열 생성
+    return formatted_amount

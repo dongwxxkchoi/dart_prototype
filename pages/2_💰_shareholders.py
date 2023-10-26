@@ -3,11 +3,8 @@ import streamlit as st
 import pandas as pd
 import sys
 
-from streamlit_agraph import agraph, Node, Edge, Config
-from collections import defaultdict
+from streamlit_agraph import agraph, Config
 from prepare_data import load_shareholder_data
-
-sys.path.append('/dart_prototype')
 from utils.utils_shareholders import is_target_stock, filter_share_data, filter_stocks_data, make_company_nodes, chase_change, shareholder_change_to_df, add_node_edge
 
 st.set_page_config(page_title='지분관계', page_icon=':bar_chart:', layout='wide')

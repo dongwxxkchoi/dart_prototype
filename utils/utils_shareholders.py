@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
-from streamlit_agraph import agraph, Node, Edge, Config
+from streamlit_agraph import Node, Edge
 from collections import defaultdict
+from numerize.numerize import numerize
 
 target_stock_types = ['보통주', '의결권 있는 주식', '보통주식', '의결권있는주식', '의결권 있는보통주', '의결권 있는 주식(보통주)', '의결권있는 주식', '기명식보통주', '의결권이 있는 주식', '보통주(의결권있는주식)', '보통주(DR)', '보통주(의결권 있는 주식)', '의결권 있는주식', '보통주(의결권있음)', '의결권 있는 보통주식', '의결권유', '의결권있는보통주', '전환우선주', '전환주', '보통주,전환우선주', '의결권 있는 주식', '기초 : 우선주기말 :보통주', '보통주/우선주', '의결권있는주식(보통주)', '전환상환우선주', '우선주보통주', '상환전환우선주', '의결권있는 보통주식', '의결권 있는 우선주', '의결권이있는 주식']
 
@@ -89,7 +90,8 @@ def chase_change(df, shareholder=True):
                 section_dict[name] = section
 
         return section_dict
-    
+
+
 def shareholder_change_to_df(shareholder_change_info):
     processed = []
     
