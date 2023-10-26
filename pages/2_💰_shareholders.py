@@ -63,12 +63,13 @@ def home():
     st.dataframe(df_stocks_selection[show_data_stocks], use_container_width=True, hide_index=True)
 
     if from_duration != to_duration:
-        st.subheader("선택한 기간 동안 지분 변화가 있는 주주")
         share_section_dict = chase_change(df_selection)
-        col1, col2 = st.columns(2)
-        selected_shareholder = col1.selectbox(label='shareholders: ', options=share_section_dict.keys())
+        if bool(share_section_dict) is True:
+            st.subheader("선택한 기간 동안 지분 변화가 있는 주주")
+            col1, col2 = st.columns(2)
+            selected_shareholder = col1.selectbox(label='shareholders: ', options=share_section_dict.keys())
 
-        st.dataframe(shareholder_change_to_df(share_section_dict[selected_shareholder]), hide_index=True)
+            st.dataframe(shareholder_change_to_df(share_section_dict[selected_shareholder]), hide_index=True)
 
     st.subheader("지분 네트워크")
     col1, _ = st.columns(2)
