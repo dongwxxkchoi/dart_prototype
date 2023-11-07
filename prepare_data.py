@@ -2,9 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-EXECUTIVES_DATA_URL='./data/big_df_members.csv'
-SHAREHOLDER_DATA_URL='./data/big_df_share.csv'
-STOCKS_DATA_URL='./data/big_df_stocks.csv'
+# EXECUTIVES_DATA_URL='./data/big_df_members.csv'
+# SHAREHOLDER_DATA_URL='./data/big_df_share.csv'
+# STOCKS_DATA_URL='./data/big_df_stocks.csv'
+EXECUTIVES_DATA_URL='./data/임원목록.csv'
+SHAREHOLDER_DATA_URL='./data/최대주주현황.csv'
+STOCKS_DATA_URL='./data/타법인출자현황.csv'
+
 
 @st.cache_data
 def load_executives_data() -> pd.DataFrame:

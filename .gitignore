@@ -1,1 +1,4 @@
 __pycache__
+./data/big_df_members.csv
+./data/big_df_share.csv
+./data/big_df_stocks.csv

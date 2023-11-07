@@ -57,7 +57,7 @@ def Home():
                        file_name=f'{selected_company}-임원목록.csv',
                        mime='text/csv')
     
-    st.dataframe(df_selection[showData],use_container_width=True)
+    st.dataframe(df_selection[showData],use_container_width=True, hide_index=True)
     
     # ============================================================
     # 선택한 임원의 경력
@@ -77,7 +77,7 @@ def Home():
                        data=convert_to_csv(df_selection[target_cols][df_selection['성명'] == selected_name]), 
                        file_name=f'{selected_name}-이력.csv',
                        mime='text/csv')
-    st.dataframe(df_selection[target_cols][df_selection['성명'] == selected_name], use_container_width=True)
+    st.dataframe(df_selection[target_cols][df_selection['성명'] == selected_name], use_container_width=True, hide_index=True)
     
     # ============================================================
     # 선택한 임원의 기간별 경력
@@ -89,7 +89,7 @@ def Home():
                        file_name=f'{selected_name}-기간별주요이력.csv',
                        mime='text/csv')
     
-    st.dataframe(period_df)
+    st.dataframe(period_df, hide_index=True)
 
 
 Home()
