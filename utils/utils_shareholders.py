@@ -58,7 +58,19 @@ def make_company_nodes(corp_dict):
     return nodes_dict
 
 #######################chase change#########################
-def chase_change(df, shareholder=True):
+def return_next_duration(duration):
+    year, quarter = map(int, duration.split(' - '))
+    if quarter == 4:
+        next_year = year + 1
+        next_quarter = 1
+    else:
+        next_year = year
+        next_quarter = quarter + 1
+    return f"{next_year} - {next_quarter}"
+
+
+
+def chase_change(df, to_duration, shareholder=True):
     if shareholder:
         df.sort_values(by=["기간", "주식수", "지분율"], ascending=[True, False, False])
         df = is_target_stock(df)
@@ -70,8 +82,11 @@ def chase_change(df, shareholder=True):
             object_dict[row['성명']].append([row['기간'], row['주식수'], row['지분율']])
         
         for name in names:
+            if object_dict[name][0][0] != to_duration:
+                object_dict[name].insert(0, [return_next_duration(object_dict[name][0][0]), '0', 0])
             stock_share = [tuple(row[1:]) for row in object_dict[name]]
             duration_stock_share = object_dict[name]
+
             if not all(x == stock_share[0] for x in stock_share):
                 object_data = sorted(duration_stock_share)
                 unique_data = sorted(list(set(stock_share)))

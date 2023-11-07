@@ -63,7 +63,7 @@ def home():
     st.dataframe(df_stocks_selection[show_data_stocks], use_container_width=True, hide_index=True)
 
     if from_duration != to_duration:
-        share_section_dict = chase_change(df_selection)
+        share_section_dict = chase_change(df_selection, to_duration)
         if bool(share_section_dict) is True:
             st.subheader("선택한 기간 동안 지분 변화가 있는 주주")
             col1, col2 = st.columns(2)
